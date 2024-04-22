@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Prisma } from '@prisma/client';
 import {
   IsBoolean,
   IsNotEmpty,
@@ -8,7 +9,7 @@ import {
   MinLength,
 } from 'class-validator';
 
-export class CreateArticleDto {
+export class CreateArticleDto implements Prisma.ArticleCreateInput {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
